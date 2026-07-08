@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI Symptom Checker</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>AI Symptom Checker</h1>
+
+<form action="/predict" method="POST">
+
+<label>Select Symptoms</label>
+
+<select name="symptoms" multiple size="20">
+
+{% for symptom in symptoms %}
+
+<option value="{{ symptom }}">{{ symptom.replace("_"," ").title() }}</option>
+
+{% endfor %}
+
+</select>
+
+<br><br>
+
+<input type="submit" value="Predict Disease">
+
+</form>
+
+</div>
+
+</body>
+
+</html>
